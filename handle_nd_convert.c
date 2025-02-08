@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 21:03:10 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/07 18:49:04 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/08 16:18:07 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ long	*c_to_d(char **c_arg, int *index)
 	i = 0;
 	while (c_arg[i])
 		i++;
+	check_if_valid(c_arg);
 	d_arg = malloc(sizeof(long) * i);
 	if (!d_arg)
 		return (NULL);
