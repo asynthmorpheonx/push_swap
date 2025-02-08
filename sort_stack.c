@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:26:04 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/08 19:05:19 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/08 19:35:57 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	swap_a(t_list **stack_a, int i)
 		current->next = temp;
 	}
 	if (i)
-		write(1, "\nsa\n", 4);
+		write(1, "sa\n", 4);
 }
 
 void	swap_b(t_list **stack_b, int i)
@@ -43,7 +43,7 @@ void	swap_b(t_list **stack_b, int i)
 		current->next = temp;
 	}
 	if (i)
-		write(1, "\nsb\n", 4);
+		write(1, "sb\n", 4);
 }
 
 void	push_a(t_list **stack_a, t_list **stack_b, int i)
@@ -59,7 +59,7 @@ void	push_a(t_list **stack_a, t_list **stack_b, int i)
 		*stack_b = temp1;
 		(*stack_a)->next = temp2;
 		if (i)
-			write(1, "\npa\n", 4);
+			write(1, "pa\n", 4);
 	}
 }
 
@@ -76,7 +76,37 @@ void	push_b(t_list **stack_a, t_list **stack_b, int i)
 		*stack_a = temp1;
 		(*stack_b)->next = temp2;
 		if (i)
-			write(1, "\npb\n", 4);
+			write(1, "pb\n", 4);
+	}
+}
+
+void	rotate_a(t_list **stack_a, int i)
+{
+	t_list *head;
+
+	if (*stack_a)
+	{
+		head = *stack_a;
+		*stack_a = (*stack_a)->next;
+		ft_lstlast(*stack_a)->next = head;
+		head->next = NULL;
+		if (i)
+			write(1, "ra\n", 4);
+	}
+}
+
+void	rotate_b(t_list **stack_b, int i)
+{
+	t_list *head;
+
+	if (*stack_b)
+	{
+		head = *stack_b;
+		*stack_b = (*stack_b)->next;
+		ft_lstlast(*stack_b)->next = head;
+		head->next = NULL;
+		if (i)
+			write(1, "rb\n", 4);
 	}
 }
 
@@ -84,5 +114,5 @@ void	swap_both(t_list **stack_a, t_list **stack_b)
 {
 	swap_a(stack_a, 0);
 	swap_b(stack_b, 0);
-	write(1, "\nss\n", 4);
+	write(1, "ss\n", 4);
 }

@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:07:48 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/08 18:37:30 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/08 19:38:25 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ t_list *stor_in_list(long *nbrs, int end)
 		ft_lstadd_back(&stack_a, ft_lstnew(nbrs[i++]));
 	return(free(nbrs), stack_a);
 }
-void	print_stack(t_list *stack , char c, int end)
+void	print_stack(t_list *stack , char c)
 {
 	int	i;
 
 	i = 0;
 	printf("======================= stack %c =======================\n", c);
-	while (i < end && stack)
+	while (stack)
 	{
 		printf("			[%ld]====>[%d]\n", stack->nbr, i);
 		i++;
@@ -59,9 +59,20 @@ int main(int ac, char **av)
 	nbrs = turn_it_into_int(arg, &i);
 	stack_a = stor_in_list(nbrs, i);
 	stack_b = NULL;
-	print_stack(stack_a, 'A', i);
-	print_stack(stack_b, 'B', i);
+	print_stack(stack_a, 'A');
+	print_stack(stack_b, 'B');
 	push_b(&stack_a, &stack_b, 1);
-	print_stack(stack_a, 'A', i);
-	print_stack(stack_b, 'B', i);
+	print_stack(stack_a, 'A');
+	print_stack(stack_b, 'B');
+	push_b(&stack_a, &stack_b, 1);
+	print_stack(stack_a, 'A');
+	print_stack(stack_b, 'B');
+	push_b(&stack_a, &stack_b, 1);
+	print_stack(stack_a, 'A');
+	print_stack(stack_b, 'B');
+	rotate_b(&stack_b, 1);
+	print_stack(stack_a, 'A');
+	print_stack(stack_b, 'B');
+	ft_lstclear(&stack_a);
+	ft_lstclear(&stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:08:23 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/08 17:09:58 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/08 19:33:27 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ int		sub_check(char *c_arg);
 int		ft_perror(void);
 void	push_a(t_list **stack_a, t_list **stack_b, int i);
 void	push_b(t_list **stack_a, t_list **stack_b, int i);
+void	rotate_b(t_list **stack_b, int i);
+void	rotate_a(t_list **stack_a, int i);
 
 #endif
