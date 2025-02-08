@@ -1,4 +1,4 @@
-SRC = check_nd_join.c  handle_nd_convert.c  push_swap.c
+SRC = check_nd_join.c sort_stack.c handle_nd_convert.c  push_swap.c
 OBJ = $(SRC:.c=.o)
 CFLAGS = -Wall -Werror -Wextra
 CC = cc

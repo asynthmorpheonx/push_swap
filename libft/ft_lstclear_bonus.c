@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:44:40 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/07 16:24:46 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/08 18:30:06 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_lstclear(t_list **lst)
 	if (lst == NULL || *lst == NULL)
 		return ;
 	curr_node = *lst;
-	while (curr_node != NULL)
+	while (curr_node->next != *lst)
 	{
 		next_node = curr_node->next;
 		free(curr_node);
