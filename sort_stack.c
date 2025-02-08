@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:26:04 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/08 19:35:57 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/08 19:40:38 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,11 @@ void	swap_both(t_list **stack_a, t_list **stack_b)
 	swap_a(stack_a, 0);
 	swap_b(stack_b, 0);
 	write(1, "ss\n", 4);
+}
+
+void	rotate_both(t_list **stack_a, t_list **stack_b)
+{
+	rotate_a(stack_a, 0);
+	rotate_b(stack_b, 0);
+	write(1, "rr\n", 4);
 }
