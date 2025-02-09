@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 20:51:16 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/08 16:18:38 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/09 18:47:33 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,24 @@ int	check_if_emty(char *arg)
 int	valid_number(char *str)
 {
 	int	i;
+	int	toggle;
 
 	i = 0;
+	toggle = 1;
 	if (!check_if_emty(str))
 		ft_perror();
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
 		{
-			if ((str[i] == '-' || str[i] == '+')
-				&& (str[i + 1] == '-' || str[i + 1] == '+'
-					|| str[i + 1] == '\0' || str[i + 1] == ' '))
+			if (toggle == 0)
+				ft_perror();
+			if ((str[i] == '-' || str[i] == '+' ) && !(str[i + 1] >= '0' && str[i + 1] <= '9'))
 				return (ft_perror());
 			else if (str[i] != ' ' && str[i] != '+' && str[i] != '-')
 				return (ft_perror());
 		}
+		toggle = 0;
 		i++;
 	}
 	return (1);
@@ -103,11 +106,14 @@ int sub_check(char *c_arg)
 	while(c_arg[i])
 	{
 		if (c_arg[i] == '0' && toggle == 1)
+		{
 			while (c_arg[i] && !(c_arg[i] >= '1' && c_arg[i] <= '9'))
 			{
 				i++;
 				toggle = 0;
 			}
+			i--;
+		}
 		if (c_arg[i] >= '1' && c_arg[i] <= '9')
 			toggle = 0;
 		len++;

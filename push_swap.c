@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:07:48 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/08 19:38:25 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/09 19:09:55 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_perror(void)
 {
 	write(2, "Error\n", 6);
-	exit(1);
+	exit(-1);
 	return(0);
 }
 
@@ -58,19 +58,14 @@ int main(int ac, char **av)
 	arg = join_all(ac, av);
 	nbrs = turn_it_into_int(arg, &i);
 	stack_a = stor_in_list(nbrs, i);
+		
 	stack_b = NULL;
 	print_stack(stack_a, 'A');
 	print_stack(stack_b, 'B');
 	push_b(&stack_a, &stack_b, 1);
-	print_stack(stack_a, 'A');
-	print_stack(stack_b, 'B');
 	push_b(&stack_a, &stack_b, 1);
-	print_stack(stack_a, 'A');
-	print_stack(stack_b, 'B');
-	push_b(&stack_a, &stack_b, 1);
-	print_stack(stack_a, 'A');
-	print_stack(stack_b, 'B');
-	rotate_b(&stack_b, 1);
+	reverse_rotate_both(&stack_a, &stack_b);
+	
 	print_stack(stack_a, 'A');
 	print_stack(stack_b, 'B');
 	ft_lstclear(&stack_a);

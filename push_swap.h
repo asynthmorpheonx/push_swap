@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:08:23 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/08 19:33:27 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/09 15:17:31 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@
 #include <stdlib.h>
 #include "libft/libft.h"
 
+void	push_a(t_list **stack_a, t_list **stack_b, int i);
+void	push_b(t_list **stack_a, t_list **stack_b, int i);
+void	rotate_both(t_list **stack_a, t_list **stack_b);
 void	swap_both(t_list **stack_a, t_list **stack_b);
+void	reverse_rotate_a(t_list **stack_a, int i);
+void	reverse_rotate_b(t_list **stack_b, int i);
 void	check_for_doubles(long *numbers, int end);
 long	*turn_it_into_int(char *arg, int *index);
 long	*c_to_d(char **c_arg, int *index);
@@ -33,9 +38,8 @@ int		check_if_emty(char *arg);
 int		valid_number(char *str);
 int		sub_check(char *c_arg);
 int		ft_perror(void);
-void	push_a(t_list **stack_a, t_list **stack_b, int i);
-void	push_b(t_list **stack_a, t_list **stack_b, int i);
 void	rotate_b(t_list **stack_b, int i);
 void	rotate_a(t_list **stack_a, int i);
+void	reverse_rotate_both(t_list **stack_a, t_list **stack_b);
 
 #endif

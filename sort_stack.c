@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/08 16:26:04 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/08 19:40:38 by mel-mouh         ###   ########.fr       */
+/*   Created: 2025/02/08 16:26:03 by mel-mouh          #+#    #+#             */
+/*   Updated: 2025/02/09 15:16:58 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	swap_a(t_list **stack_a, int i)
 		current->next = temp;
 	}
 	if (i)
-		write(1, "sa\n", 4);
+		write(1, "sa\n", 3);
 }
 
 void	swap_b(t_list **stack_b, int i)
@@ -43,7 +43,7 @@ void	swap_b(t_list **stack_b, int i)
 		current->next = temp;
 	}
 	if (i)
-		write(1, "sb\n", 4);
+		write(1, "sb\n", 3);
 }
 
 void	push_a(t_list **stack_a, t_list **stack_b, int i)
@@ -59,7 +59,7 @@ void	push_a(t_list **stack_a, t_list **stack_b, int i)
 		*stack_b = temp1;
 		(*stack_a)->next = temp2;
 		if (i)
-			write(1, "pa\n", 4);
+			write(1, "pa\n", 3);
 	}
 }
 
@@ -76,7 +76,7 @@ void	push_b(t_list **stack_a, t_list **stack_b, int i)
 		*stack_a = temp1;
 		(*stack_b)->next = temp2;
 		if (i)
-			write(1, "pb\n", 4);
+			write(1, "pb\n", 3);
 	}
 }
 
@@ -91,7 +91,7 @@ void	rotate_a(t_list **stack_a, int i)
 		ft_lstlast(*stack_a)->next = head;
 		head->next = NULL;
 		if (i)
-			write(1, "ra\n", 4);
+			write(1, "ra\n", 3);
 	}
 }
 
@@ -106,7 +106,7 @@ void	rotate_b(t_list **stack_b, int i)
 		ft_lstlast(*stack_b)->next = head;
 		head->next = NULL;
 		if (i)
-			write(1, "rb\n", 4);
+			write(1, "rb\n", 3);
 	}
 }
 
@@ -114,12 +114,53 @@ void	swap_both(t_list **stack_a, t_list **stack_b)
 {
 	swap_a(stack_a, 0);
 	swap_b(stack_b, 0);
-	write(1, "ss\n", 4);
+	write(1, "ss\n", 3);
+}
+
+void	reverse_rotate_a(t_list **stack_a, int i)
+{
+	t_list	*temp1;
+	t_list	*temp2;
+
+	if (*stack_a)
+	{
+		temp1 = *stack_a;
+		temp2 = ft_lstbeforelast(*stack_a);
+		*stack_a = ft_lstlast(*stack_a);
+		temp2->next = NULL;
+		(*stack_a)->next = temp1;
+		if (i)
+			write(1, "rra\n", 4);
+	}
+}
+
+void	reverse_rotate_b(t_list **stack_b, int i)
+{
+	t_list	*temp1;
+	t_list	*temp2;
+
+	if (*stack_b)
+	{
+		temp1 =  *stack_b;
+		temp2 = ft_lstbeforelast(*stack_b);
+		*stack_b = ft_lstlast(*stack_b);
+		(*stack_b)->next = temp1;
+		temp2->next = NULL;
+		if (i)
+			write(1, "rrb\n", 4);
+	}
+}
+
+void	reverse_rotate_both(t_list **stack_a, t_list **stack_b)
+{
+	rotate_a(stack_a, 0);
+	rotate_b(stack_b, 0);
+	write(1, "rrr\n", 4);
 }
 
 void	rotate_both(t_list **stack_a, t_list **stack_b)
 {
 	rotate_a(stack_a, 0);
 	rotate_b(stack_b, 0);
-	write(1, "rr\n", 4);
+	write(1, "rr\n", 3);
 }

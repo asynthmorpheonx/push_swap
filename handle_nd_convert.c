@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 21:03:10 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/08 16:18:07 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/09 18:43:03 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ long	*c_to_d(char **c_arg, int *index)
 	i = 0;
 	while (c_arg[i])
 	{
+			printf("=%s=\n", c_arg[i]);
 		d_arg[i] = ft_atoi(c_arg[i]);
 		if (d_arg[i] > 2147483647
 			|| d_arg[i] < -2147483648)
