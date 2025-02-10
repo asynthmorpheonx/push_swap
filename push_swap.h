@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:08:23 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/09 15:17:31 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:51:47 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,10 @@ int		ft_perror(void);
 void	rotate_b(t_list **stack_b, int i);
 void	rotate_a(t_list **stack_a, int i);
 void	reverse_rotate_both(t_list **stack_a, t_list **stack_b);
+void	sort_in_array(long *nbrs, int index);
+void	sort_in_b(long *array, t_list **a, t_list **b, int nbr_count);
+void	sort_b_to_a(t_list **a, t_list **b);
+int	check_if_sorted_already(long *array, int end);
+void	print_stack(t_list *stack , char c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 20:51:16 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/09 18:47:33 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/10 22:58:35 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,15 @@ int	valid_number(char *str)
 		if (!(str[i] >= '0' && str[i] <= '9'))
 		{
 			if (toggle == 0)
-				ft_perror();
+				return (0);
 			if ((str[i] == '-' || str[i] == '+' ) && !(str[i + 1] >= '0' && str[i + 1] <= '9'))
-				return (ft_perror());
+				return (0);
 			else if (str[i] != ' ' && str[i] != '+' && str[i] != '-')
-				return (ft_perror());
+				return (0);
+			toggle = 0;
 		}
-		toggle = 0;
+		else
+			toggle = 1;
 		i++;
 	}
 	return (1);

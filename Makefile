@@ -1,6 +1,6 @@
-SRC = check_nd_join.c sort_stack.c handle_nd_convert.c  push_swap.c
+SRC = check_nd_join.c sort_stack.c handle_nd_convert.c push_swap.c sorting.c
 OBJ = $(SRC:.c=.o)
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3
 CC = cc
 NAME = push_swap
 LIBFT = ./libft/libft.a

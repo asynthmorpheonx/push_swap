@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:26:03 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/09 15:16:58 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:53:50 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	swap_a(t_list **stack_a, int i)
 	t_list *current;
 	t_list *temp;
 
-	current = *stack_a;
-	if ((*stack_a)->next)
+	if (*stack_a && (*stack_a)->next)
 	{
+		current = *stack_a;
 		temp = (*stack_a)->next->next;
 		(*stack_a) = (*stack_a)->next;
 		(*stack_a)->next = current;
@@ -34,9 +34,9 @@ void	swap_b(t_list **stack_b, int i)
 	t_list *current;
 	t_list *temp;
 
-	current = *stack_b;
-	if ((*stack_b)->next)
+	if (*stack_b && (*stack_b)->next)
 	{
+		current = *stack_b;
 		temp = (*stack_b)->next->next;
 		(*stack_b) = (*stack_b)->next;
 		(*stack_b)->next = current;
@@ -84,7 +84,7 @@ void	rotate_a(t_list **stack_a, int i)
 {
 	t_list *head;
 
-	if (*stack_a)
+	if (*stack_a && (*stack_a)->next)
 	{
 		head = *stack_a;
 		*stack_a = (*stack_a)->next;
@@ -99,7 +99,7 @@ void	rotate_b(t_list **stack_b, int i)
 {
 	t_list *head;
 
-	if (*stack_b)
+	if (*stack_b && (*stack_b)->next)
 	{
 		head = *stack_b;
 		*stack_b = (*stack_b)->next;

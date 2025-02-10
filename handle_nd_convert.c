@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 21:03:10 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/09 18:43:03 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/10 22:58:09 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ long	*c_to_d(char **c_arg, int *index)
 	i = 0;
 	while (c_arg[i])
 	{
-			printf("=%s=\n", c_arg[i]);
 		d_arg[i] = ft_atoi(c_arg[i]);
 		if (d_arg[i] > 2147483647
 			|| d_arg[i] < -2147483648)
@@ -99,4 +98,18 @@ long	*turn_it_into_int(char *arg, int *index)
 	numbers = c_to_d(c_arg, index);
 	check_for_doubles(numbers, *index);
 	return (numbers);
+}
+
+int	check_if_sorted_already(long *array, int end)
+{
+	int	i;
+
+	i = 0;
+	while (i < end - 1)
+	{
+		if (!(array[i] < array[i + 1]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
