@@ -53,7 +53,7 @@ int main(int ac, char **av)
 	t_list	*b;
 
 	if (ac < 2)
-		ft_perror();
+		return (0);
 	nbrs = turn_it_into_int(join_all(ac, av), &i);
 	a = stor_in_list(nbrs, i);
 	if (check_if_sorted_already(nbrs, i))
@@ -61,9 +61,7 @@ int main(int ac, char **av)
 	sort_in_array(nbrs, i);
 	b = NULL;
 	sort_in_b(nbrs, &a, &b, i);
-	print_stack(b, 'B');
 	sort_b_to_a(&a, &b);
-	print_stack(a, 'A');
 	free(nbrs);
 	ft_lstclear(&a);
 }

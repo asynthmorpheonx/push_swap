@@ -43,9 +43,9 @@ void	sort_in_b(long *array, t_list **a, t_list **b, int nbr_count)
 
 	i = 0;
 	if (nbr_count <= 100)
-		j = nbr_count / 7;
+		j = nbr_count / 6;
 	else
-		j = nbr_count / 14;
+		j = nbr_count / 13;
 	while (*a)
 	{
 		if ((*a)->nbr <= array[i])
@@ -58,6 +58,8 @@ void	sort_in_b(long *array, t_list **a, t_list **b, int nbr_count)
 		else if ((*a)->nbr <= array[j])
 		{
 			push_b(a, b, 1);
+			if ((*b)->next && (*b)->nbr < (*b)->next->nbr)
+				swap_b(b, 1);
 			i++;
 			j++;
 		}
@@ -66,16 +68,46 @@ void	sort_in_b(long *array, t_list **a, t_list **b, int nbr_count)
 	}
 }
 
+int	return_biggest(t_list *b)
+{
+	int		i;
+	int		j;
+	long	biggest;
+
+	i = 0;
+	j = 0;
+	biggest = b->nbr;
+	while (b)
+	{
+		if (b->nbr > biggest)
+		{
+			j = i;
+			biggest = b->nbr;
+		}
+		b = b->next;
+		i++;
+	}
+	return (j);
+}
+
 void	sort_b_to_a(t_list **a, t_list **b)
 {
+	int	beggest;
+
 	while (*b)
 	{
-		if ((*b)->nbr < ft_lstlast(*b)->nbr)
+		beggest = return_biggest(*b);
+		if (beggest == 0)
+			push_a(a, b, 1);
+		else if (beggest <= (ft_lstsize(*b) / 2))
 		{
-			reverse_rotate_b(b, 1);
-			push_a(a, b, 1);
+			while (return_biggest(*b) != 0)
+				rotate_b(b, 1);
 		}
-		else
-			push_a(a, b, 1);
+		else if (beggest > (ft_lstsize(*b) / 2))
+		{
+			while (return_biggest(*b) != 0)
+				reverse_rotate_b(b, 1);
+		}
 	}
 }
