@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:07:48 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/10 23:02:02 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/10 23:22:31 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int main(int ac, char **av)
 	sort_in_array(nbrs, i);
 	b = NULL;
 	sort_in_b(nbrs, &a, &b, i);
+	print_stack(b, 'B');
 	sort_b_to_a(&a, &b);
 	print_stack(a, 'A');
 	free(nbrs);

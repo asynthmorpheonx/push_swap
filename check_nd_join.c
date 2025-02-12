@@ -6,7 +6,7 @@
 /*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 20:51:16 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/10 22:58:35 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/10 23:10:56 by mel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	check_if_emty(char *arg)
 	toggle = 0;
 	while (arg[i])
 	{
-		if (arg[i] != ' ' && !(arg[i] >= 9 && arg[i] <= 13))
+		if (arg[i] != ' ')
 			toggle = 1;
 		i++;
 	}
@@ -31,26 +31,19 @@ int	check_if_emty(char *arg)
 int	valid_number(char *str)
 {
 	int	i;
-	int	toggle;
 
 	i = 0;
-	toggle = 1;
 	if (!check_if_emty(str))
 		ft_perror();
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
 		{
-			if (toggle == 0)
+			if (!(str[i] >= '0' && str[i] <= '9') && str[i] != '+' && str[i] != '-' && str[i] != ' ')
 				return (0);
-			if ((str[i] == '-' || str[i] == '+' ) && !(str[i + 1] >= '0' && str[i + 1] <= '9'))
+			else if ((str[i] == '+' || str[i] == '-') && !(str[i + 1] >= '0' && str[i] <= '9'))
 				return (0);
-			else if (str[i] != ' ' && str[i] != '+' && str[i] != '-')
-				return (0);
-			toggle = 0;
 		}
-		else
-			toggle = 1;
 		i++;
 	}
 	return (1);
@@ -64,7 +57,7 @@ int	check_first(int ac, char **av)
 	while (i < ac)
 	{
 		if (!valid_number(av[i]))
-			return (ft_perror());
+			return (0);
 		i++;
 	}
 	return (1);
@@ -80,7 +73,7 @@ char	*join_all(int ac, char **av)
 	i = 1;
 	str = NULL;
 	temp2 = NULL;
-	if (check_first(ac, av) == 0)
+	if (!check_first(ac, av))
 		ft_perror();
 	while (i < ac)
 	{
