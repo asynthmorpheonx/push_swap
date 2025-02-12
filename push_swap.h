@@ -30,7 +30,7 @@ long	*c_to_d(char **c_arg, int *index);
 void	swap_a(t_list **stack_a, int i);
 void	swap_b(t_list **stack_b, int i);
 int		check_first(int ac, char **av);
-void	ft_free(char **s1, char **s2);
+void	ft_free(char **s1, void *s2);
 t_list	*sort_it_in_list(long *nbrs);
 char	*join_all(int ac, char **av);
 void	check_if_valid(char **c_arg);	

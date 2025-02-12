@@ -31,19 +31,26 @@ int	check_if_emty(char *arg)
 int	valid_number(char *str)
 {
 	int	i;
+	int toggle;
 
 	i = 0;
+	toggle = 1;
 	if (!check_if_emty(str))
 		ft_perror();
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
 		{
+			if (str[i] == ' ')
+				toggle = 1;
 			if (!(str[i] >= '0' && str[i] <= '9') && str[i] != '+' && str[i] != '-' && str[i] != ' ')
 				return (0);
 			else if ((str[i] == '+' || str[i] == '-') && !(str[i + 1] >= '0' && str[i] <= '9'))
 				return (0);
+			else if ((str[i] == '+' || str[i] == '-') && toggle == 0)
+				return (0);
 		}
+		toggle = 0;
 		i++;
 	}
 	return (1);

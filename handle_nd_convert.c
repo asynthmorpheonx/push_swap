@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_free(char **s1, char **s2)
+void	ft_free(char **s1, void *s2)
 {
 	int	i;
 
@@ -25,12 +25,6 @@ void	ft_free(char **s1, char **s2)
 	free(s1);
 	if (!s2)
 		return ;
-	i = 0;
-	while (s2[i])
-	{
-		free(s2[i]);
-		i++;
-	}
 	free(s2);
 }
 
@@ -53,8 +47,7 @@ long	*c_to_d(char **c_arg, int *index)
 		if (d_arg[i] > 2147483647
 			|| d_arg[i] < -2147483648)
 		{
-			ft_free(c_arg, NULL);
-			free(d_arg);
+			ft_free(c_arg, d_arg);
 			ft_perror();
 		}
 		i++;

@@ -38,7 +38,7 @@ void	print_stack(t_list *stack , char c)
 	printf("======================= stack %c =======================\n", c);
 	while (stack)
 	{
-		printf("			[%ld]====>[%d]\n", stack->nbr, i);
+		printf("		      [%ld]====>[%d]\n", stack->nbr, i);
 		i++;
 		stack = stack->next;
 	}
@@ -58,10 +58,11 @@ int main(int ac, char **av)
 	a = stor_in_list(nbrs, i);
 	if (check_if_sorted_already(nbrs, i))
 		return (0);
-	sort_in_array(nbrs, i);
 	b = NULL;
+	sort_in_array(nbrs, i);
 	sort_in_b(nbrs, &a, &b, i);
 	sort_b_to_a(&a, &b);
 	free(nbrs);
 	ft_lstclear(&a);
+	return (0);
 }
