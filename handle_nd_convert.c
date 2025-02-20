@@ -63,7 +63,7 @@ void	check_for_doubles(long *numbers, int end)
 	int	j;
 
 	i = 0;
-	while (i < end)
+	while (i < end - 1)
 	{
 		j = i + 1;
 		while (j < end)

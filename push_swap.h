@@ -34,7 +34,7 @@ void	ft_free(char **s1, void *s2);
 t_list	*sort_it_in_list(long *nbrs);
 char	*join_all(int ac, char **av);
 void	check_if_valid(char **c_arg);	
-int		check_if_emty(char *arg);
+void	check_if_emty(char *arg);
 int		valid_number(char *str);
 int		sub_check(char *c_arg);
 int		ft_perror(void);
@@ -44,7 +44,8 @@ void	reverse_rotate_both(t_list **stack_a, t_list **stack_b);
 void	sort_in_array(long *nbrs, int index);
 void	sort_in_b(long *array, t_list **a, t_list **b, int nbr_count);
 void	sort_b_to_a(t_list **a, t_list **b);
-int	check_if_sorted_already(long *array, int end);
+int     check_if_sorted_already(long *array, int end);
 void	print_stack(t_list *stack , char c);
+void    sort_pair(t_list **a, t_list **b, int i);
 
 #endif

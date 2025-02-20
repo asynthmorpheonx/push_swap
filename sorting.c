@@ -19,7 +19,7 @@ void	sort_in_array(long *nbrs, int index)
 	long	temp;
 
 	i = 0;
-	while (i < index)
+	while (i < index - 1)
 	{
 		j = i + 1;
 		while (j < index)
@@ -43,7 +43,7 @@ void	sort_in_b(long *array, t_list **a, t_list **b, int nbr_count)
 
 	i = 0;
 	if (nbr_count <= 100)
-		j = nbr_count / 6;
+		j = nbr_count / 7;
 	else
 		j = nbr_count / 13;
 	while (*a)
@@ -53,7 +53,8 @@ void	sort_in_b(long *array, t_list **a, t_list **b, int nbr_count)
 			push_b(a, b, 1);
 			rotate_b(b, 1);
 			i++;
-			j++;
+			if (j < nbr_count - 1)
+				j++;
 		}
 		else if ((*a)->nbr <= array[j])
 		{
@@ -61,7 +62,8 @@ void	sort_in_b(long *array, t_list **a, t_list **b, int nbr_count)
 			if ((*b)->next && (*b)->nbr < (*b)->next->nbr)
 				swap_b(b, 1);
 			i++;
-			j++;
+			if (j < nbr_count - 1)
+				j++;
 		}
 		else
 			rotate_a(a, 1);

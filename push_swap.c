@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
+/*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:07:48 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/10 23:22:31 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/20 14:49:18 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,20 @@ int main(int ac, char **av)
 
 	if (ac < 2)
 		return (0);
+	i = 0;
 	nbrs = turn_it_into_int(join_all(ac, av), &i);
-	a = stor_in_list(nbrs, i);
 	if (check_if_sorted_already(nbrs, i))
-		return (0);
+		return (free(nbrs), 0);
+	a = stor_in_list(nbrs, i);
 	b = NULL;
-	sort_in_array(nbrs, i);
-	sort_in_b(nbrs, &a, &b, i);
-	sort_b_to_a(&a, &b);
+	if (i <= 5)
+		sort_pair(&a, &b, i);
+	else
+	{
+		sort_in_array(nbrs, i);
+		sort_in_b(nbrs, &a, &b, i);
+		sort_b_to_a(&a, &b);
+	}
 	free(nbrs);
 	ft_lstclear(&a);
 	return (0);
