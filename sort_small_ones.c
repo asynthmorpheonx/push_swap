@@ -6,7 +6,7 @@
 /*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 22:44:10 by  mel-mouh         #+#    #+#             */
-/*   Updated: 2025/02/20 14:46:21 by  mel-mouh        ###   ########.fr       */
+/*   Updated: 2025/02/20 15:02:20 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ static void	small_sort_comlpex(t_list **a)
 		swap_a(a, 1);
 	else if (first->nbr > second->nbr && second->nbr < third->nbr && first->nbr > third->nbr)
 		rotate_a(a, 1);
-	if (first->nbr > second->nbr && second->nbr > third->nbr )
+	if (first->nbr > second->nbr && second->nbr > third->nbr)
 	{
 		swap_a(a, 1);
 		reverse_rotate_a(a, 1);
 	}
-	else if (first->nbr < second->nbr && first->nbr < third->nbr)
+	else if (first->nbr < second->nbr && first->nbr < third->nbr && second->nbr > third->nbr)
 	{
 		reverse_rotate_a(a, 1);
 		swap_a(a, 1);
@@ -104,7 +104,7 @@ void    sort_pair(t_list **a, t_list **b, int i)
 		push_th_small(a, b);
 		small_sort_comlpex(a);
 		if ((*b)->nbr < (*b)->next->nbr)
-			swap_b(b, 1);		
+			swap_b(b, 1);
 		push_a(a, b, 1);
 		push_a(a, b, 1);
 	}
