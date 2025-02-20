@@ -6,11 +6,11 @@
 /*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 22:44:10 by  mel-mouh         #+#    #+#             */
-/*   Updated: 2025/02/20 15:02:20 by  mel-mouh        ###   ########.fr       */
+/*   Updated: 2025/02/20 21:20:49 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 static int	return_smallest(t_list *a)
 {

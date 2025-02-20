@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_nd_join.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
+/*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 20:51:16 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/10 23:10:56 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/20 21:20:49 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 void	check_if_emty(char *arg)
 {

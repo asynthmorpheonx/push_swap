@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
+/*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:26:03 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/10 21:53:50 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/20 21:20:49 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 void	swap_a(t_list **stack_a, int i)
 {

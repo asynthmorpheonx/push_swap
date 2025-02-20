@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   handle_nd_convert.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
+/*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 21:03:10 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/10 22:58:09 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/20 21:20:49 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 void	ft_free(char **s1, void *s2)
 {

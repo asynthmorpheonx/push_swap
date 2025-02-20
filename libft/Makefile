@@ -19,18 +19,18 @@ all : $(NAME)
 re : fclean all
 
 $(NAME) : $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ) 
 
 bonus : $(BOBJ) $(OBJ)
-	@ar rcs $(NAME) $(BOBJ) $(OBJ)
+	ar rcs $(NAME) $(BOBJ) $(OBJ)
 
 %.o : %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ -I ../includes/
 
 clean :
-	@rm -f $(OBJ) $(BOBJ)
+	rm -f $(OBJ) $(BOBJ)
 
 fclean : clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 .PHONY: all re clean fclean bonus
