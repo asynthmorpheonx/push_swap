@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
+/*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 16:46:00 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/09 14:59:26 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/21 23:51:32 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_list
 {
 	long			nbr;
 	struct s_list	*next;	
-} 	t_list;
+}	t_list;
 
 t_list	*ft_lstnew(long content);
 void	ft_lstadd_front(t_list **lst, t_list *new);

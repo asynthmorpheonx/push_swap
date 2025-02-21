@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-mouh <mel-mouh@student.1337.ma>        +#+  +:+       +#+        */
+/*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 17:53:55 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/08 18:32:15 by mel-mouh         ###   ########.fr       */
+/*   Updated: 2025/02/21 23:47:31 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_lstsize(t_list *lst)
 {
 	int	i;
-	
+
 	i = 0;
 	if (lst != NULL)
 	{

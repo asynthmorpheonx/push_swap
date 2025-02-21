@@ -6,7 +6,7 @@
 /*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:56:50 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/20 21:20:49 by  mel-mouh        ###   ########.fr       */
+/*   Updated: 2025/02/22 00:48:14 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,31 +36,31 @@ void	sort_in_array(long *nbrs, int index)
 	}
 }
 
+static int	which_index(int nbr_count)
+{
+	if (nbr_count <= 100)
+		return (nbr_count / 7);
+	return (nbr_count / 13);
+}
+
 void	sort_in_b(long *array, t_list **a, t_list **b, int nbr_count)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	if (nbr_count <= 100)
-		j = nbr_count / 7;
-	else
-		j = nbr_count / 13;
+	j = which_index(nbr_count);
 	while (*a)
 	{
-		if ((*a)->nbr <= array[i])
+		if ((*a)->nbr <= array[i] || ((*a)->nbr <= array[j]))
 		{
-			push_b(a, b, 1);
-			rotate_b(b, 1);
-			i++;
-			if (j < nbr_count - 1)
-				j++;
-		}
-		else if ((*a)->nbr <= array[j])
-		{
-			push_b(a, b, 1);
-			if ((*b)->next && (*b)->nbr < (*b)->next->nbr)
-				swap_b(b, 1);
+			if ((*a)->nbr <= array[i])
+			{
+				push_b(a, b, 1);
+				rotate_b(b, 1);
+			}
+			else
+				push_b(a, b, 1);
 			i++;
 			if (j < nbr_count - 1)
 				j++;
@@ -70,7 +70,7 @@ void	sort_in_b(long *array, t_list **a, t_list **b, int nbr_count)
 	}
 }
 
-int	return_biggest(t_list *b)
+static int	return_biggest(t_list *b)
 {
 	int		i;
 	int		j;

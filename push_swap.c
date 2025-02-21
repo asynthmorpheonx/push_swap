@@ -6,20 +6,19 @@
 /*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:07:48 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/20 21:20:49 by  mel-mouh        ###   ########.fr       */
+/*   Updated: 2025/02/22 00:51:09 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int	ft_perror(void)
+void	ft_perror(void)
 {
 	write(2, "Error\n", 6);
 	exit(-1);
-	return(0);
 }
 
-t_list *stor_in_list(long *nbrs, int end)
+t_list	*stor_in_list(long *nbrs, int end)
 {
 	t_list	*stack_a;
 	int		i;
@@ -28,24 +27,28 @@ t_list *stor_in_list(long *nbrs, int end)
 	stack_a = NULL;
 	while (i < end)
 		ft_lstadd_back(&stack_a, ft_lstnew(nbrs[i++]));
-	return(stack_a);
+	return (stack_a);
 }
-void	print_stack(t_list *stack , char c)
+
+void	check_if_emty(char *arg)
 {
 	int	i;
+	int	toggle;
 
 	i = 0;
-	printf("======================= stack %c =======================\n", c);
-	while (stack)
+	toggle = 0;
+	while (arg[i])
 	{
-		printf("		      [%ld]====>[%d]\n", stack->nbr, i);
+		if (arg[i] != ' ')
+			toggle = 1;
 		i++;
-		stack = stack->next;
 	}
-	printf("=======================================================\n");
+	if (toggle)
+		return ;
+	ft_perror();
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	int		i;
 	long	*nbrs;

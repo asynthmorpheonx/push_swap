@@ -1,8 +1,10 @@
-SRC = check_nd_join.c sort_stack.c handle_nd_convert.c push_swap.c sorting.c sort_small_ones.c 
-BSRC = checker.c get_next_line_bonus.c check_nd_join_bonus.c handle_nd_convert_bonus.c   instructions_bonus.c
+SRC = check_nd_join.c first_sort_stack.c second_sort_stack.c \
+	handle_nd_convert.c push_swap.c sorting.c sort_small_ones.c 
+BSRC = checker.c get_next_line_bonus.c check_nd_join_bonus.c \
+	handle_nd_convert_bonus.c instructions_bonus.c
 OBJ = $(SRC:.c=.o)
 BOBJ = $(BSRC:.c=.o)
-CFLAGS = -Wall -Werror -Wextra -I ./includes/
+CFLAGS = -Wall -Werror -Wextra -I ./includes/ -g3
 CC = cc
 NAME = push_swap
 CHECK= checker

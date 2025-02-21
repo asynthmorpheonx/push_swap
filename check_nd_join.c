@@ -6,34 +6,16 @@
 /*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 20:51:16 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/21 20:41:24 by  mel-mouh        ###   ########.fr       */
+/*   Updated: 2025/02/21 23:56:49 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	check_if_emty(char *arg)
-{
-	int	i;
-	int	toggle;
-
-	i = 0;
-	toggle = 0;
-	while (arg[i])
-	{
-		if (arg[i] != ' ')
-			toggle = 1;
-		i++;
-	}
-	if (toggle)
-		return ;
-	ft_perror();
-}
-
 int	valid_number(char *str)
 {
 	int	i;
-	int toggle;
+	int	toggle;
 
 	i = 0;
 	toggle = 1;
@@ -44,12 +26,13 @@ int	valid_number(char *str)
 			toggle = 1;
 		if (!(str[i] >= '0' && str[i] <= '9'))
 		{
-			if ((str[i] == '-' || str[i] == '+') && !(str[i + 1] >= '0' && str[i + 1] <= '9'))
+			if ((str[i] == '-' || str[i] == '+')
+				&& !(str[i + 1] >= '0' && str[i + 1] <= '9'))
 				return (0);
 			else if ((str[i] == '+' || str[i] == '-') && toggle == 0)
 				return (0);
 			else if (str[i] != '+' && str[i] != '-' && str[i] != ' ')
-				return (0); 
+				return (0);
 		}
 		else
 			toggle = 0;
@@ -98,16 +81,16 @@ char	*join_all(int ac, char **av)
 	return (str);
 }
 
-int sub_check(char *c_arg)
+int	sub_check(char *c_arg)
 {
-	int i;
-	int len;
-	int toggle;
+	int	i;
+	int	len;
+	int	toggle;
 
 	i = 0;
 	len = 0;
 	toggle = 1;
-	while(c_arg[i++])
+	while (c_arg[i++])
 	{
 		if (c_arg[i] == '0' && toggle == 1)
 		{

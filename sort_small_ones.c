@@ -6,7 +6,7 @@
 /*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 22:44:10 by  mel-mouh         #+#    #+#             */
-/*   Updated: 2025/02/20 21:20:49 by  mel-mouh        ###   ########.fr       */
+/*   Updated: 2025/02/22 00:00:29 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	return_smallest(t_list *a)
 	long	smallest;
 
 	i = 0;
-	j = 0;	
+	j = 0;
 	smallest = a->nbr;
 	while (a)
 	{
@@ -36,28 +36,29 @@ static int	return_smallest(t_list *a)
 
 static void	small_sort_comlpex(t_list **a)
 {
-	t_list *first;
-	t_list *second;
-	t_list *third;
+	t_list	*first;
+	t_list	*second;
 
 	first = *a;
 	second = (*a)->next;
-	third = second->next;
-	if (first->nbr > second->nbr && second->nbr < third->nbr && first->nbr < third->nbr)
+	if (first->nbr > second->nbr && second->nbr < second->next->nbr
+		&& first->nbr < second->next->nbr)
 		swap_a(a, 1);
-	else if (first->nbr > second->nbr && second->nbr < third->nbr && first->nbr > third->nbr)
+	else if (first->nbr > second->nbr && second->nbr < second->next->nbr
+		&& first->nbr > second->next->nbr)
 		rotate_a(a, 1);
-	if (first->nbr > second->nbr && second->nbr > third->nbr)
+	if (first->nbr > second->nbr && second->nbr > second->next->nbr)
 	{
 		swap_a(a, 1);
 		reverse_rotate_a(a, 1);
 	}
-	else if (first->nbr < second->nbr && first->nbr < third->nbr && second->nbr > third->nbr)
+	else if (first->nbr < second->nbr && first->nbr < second->next->nbr
+		&& second->nbr > second->next->nbr)
 	{
 		reverse_rotate_a(a, 1);
 		swap_a(a, 1);
 	}
-	else if (first->nbr < second->nbr && first->nbr > third->nbr)
+	else if (first->nbr < second->nbr && first->nbr > second->next->nbr)
 		reverse_rotate_a(a, 1);
 }
 
@@ -75,22 +76,22 @@ static void	push_th_small(t_list **a, t_list **b)
 		}
 		else if (smallest <= (ft_lstsize(*a) / 2))
 		{
-			while (return_smallest(*a) != 0	)
+			while (return_smallest(*a) != 0)
 				rotate_a(a, 1);
 		}
 		else if (smallest > (ft_lstsize(*a) / 2))
 		{
 			while (return_smallest(*a) != 0)
-				reverse_rotate_a(a, 1);			
+				reverse_rotate_a(a, 1);
 		}
 	}
 }
 
-void    sort_pair(t_list **a, t_list **b, int i)
+void	sort_pair(t_list **a, t_list **b, int i)
 {
 	if (i == 2)
 		swap_a(a, 1);
-    else if (i == 3)
+	else if (i == 3)
 		small_sort_comlpex(a);
 	else if (i == 4)
 	{
