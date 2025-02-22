@@ -33,4 +33,4 @@ fclean: clean
 
 .PHONY: re clean fclean
 
-.SECONDARY: $(LIBFT) $(CHECK) $(NAME)
+.SECONDARY: $(LIBFT)
