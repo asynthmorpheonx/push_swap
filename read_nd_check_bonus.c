@@ -6,7 +6,7 @@
 /*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 01:03:48 by  mel-mouh         #+#    #+#             */
-/*   Updated: 2025/02/22 14:13:55 by  mel-mouh        ###   ########.fr       */
+/*   Updated: 2025/02/22 14:33:41 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,13 @@ void	read_nd_do(t_list **a, t_list **b)
 		if (!line || !check_if_instruction(line))
 		{
 			if (!check_if_instruction(line))
-				write(1, "Error\n", 6);
+			{
+				free(line);
+				ft_lstclear(a);
+				ft_lstclear(b);
+				get_next_line(-1);
+				ft_perror();
+			}
 			if (line)
 				free(line);
 			break ;
