@@ -11,7 +11,7 @@ BSRC = ft_lstadd_back_bonus.c ft_lstdelone_bonus.c\
 	ft_lstclear_bonus.c ft_lstlast_bonus.c ft_lstsize_bonus.c
 OBJ = ${SRC:.c=.o}
 BOBJ = ${BSRC:.c=.o}
-CFLAGS = -Wall -Werror -Wextra -g3
+CFLAGS = -Wall -Werror -Wextra
 NAME = libft.a
 
 all : $(NAME)
