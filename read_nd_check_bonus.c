@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_nd_check.c                                    :+:      :+:    :+:   */
+/*   read_nd_check_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 01:03:48 by  mel-mouh         #+#    #+#             */
-/*   Updated: 2025/02/22 01:04:02 by  mel-mouh        ###   ########.fr       */
+/*   Updated: 2025/02/22 14:13:55 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	read_nd_do(t_list **a, t_list **b)
 		}
 		if (check_if_instruction(line))
 			user_sort_execution(line, a, b);
+		free(line);
 	}
 	get_next_line(-1);
 }
