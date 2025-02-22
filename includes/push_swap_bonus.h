@@ -6,7 +6,7 @@
 /*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 18:58:06 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/22 01:16:52 by  mel-mouh        ###   ########.fr       */
+/*   Updated: 2025/02/22 01:24:19 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	reverse_rotate_a(t_list **stack_a);
 void	reverse_rotate_b(t_list **stack_b);
 void	reverse_rotate_both(t_list **stack_a, t_list **stack_b);
 void	rotate_both(t_list **stack_a, t_list **stack_b);
-int	check_if_instruction(char	*str);
+int		check_if_instruction(char	*str);
 void	user_sort_execution(char *instruction, t_list **a, t_list **b);
 void	read_nd_do(t_list **a, t_list **b);
 
