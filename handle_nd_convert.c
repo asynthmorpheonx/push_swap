@@ -6,7 +6,7 @@
 /*   By:  mel-mouh < mel-mouh@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 21:03:10 by mel-mouh          #+#    #+#             */
-/*   Updated: 2025/02/20 21:20:49 by  mel-mouh        ###   ########.fr       */
+/*   Updated: 2025/02/22 20:13:20 by  mel-mouh        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,17 @@ long	*turn_it_into_int(char *arg, int *index)
 
 	c_arg = ft_split(arg, ' ');
 	if (!c_arg)
-		return (free(arg), NULL);
+	{
+		free(arg);
+		ft_perror();
+	}
 	free(arg);
 	numbers = c_to_d(c_arg, index);
+	if (!numbers)
+	{
+		ft_free(c_arg, arg);
+		ft_perror();
+	}
 	check_for_doubles(numbers, *index);
 	return (numbers);
 }
